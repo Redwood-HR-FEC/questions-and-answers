@@ -1,33 +1,27 @@
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/questions', { useNewUrlParser: true });
+/* eslint-disable no-console */
+const mongoose = require('mongoose');
 
+mongoose.connect('mongodb://localhost/questions', { useNewUrlParser: true, useUnifiedTopology: true });
 
-var db = mongoose.connection;
-db.on('error', console.log('connection error:'));
-db.once('open', function () {
-    // we're connected!
-    console.log('connected');
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+  // we're connected!
+  console.log('connected');
 });
 
-var questionsSchema = new mongoose.Schema({
-    _id: Schema.Types.ObjectId,
-    id: Number,
-    questions: String,
-    question_url: String,
-    votes: Number,
-    answers: [{ type: Schema.Types.ObjectId, ref: 'Answer' }]
-});
-
-const answersSchema = Schema({
-    id: { type: Schema.Types.ObjectId, ref: 'Question' },
-    answer: String,
-    username: String,
-    date_posted: Date
+const { Schema } = mongoose;
+const questionsSchema = new Schema({
+  // _id: Schema.Types.ObjectId,
+  product_id: String,
+  questions: String,
+  question_url: String,
+  votes: Number,
+  answers: [],
 });
 
 
+const Question = mongoose.model('Question', questionsSchema);
 
-var Question = mongoose.model('Question', questionsSchema);
-var Answer = mongoose.model('Answer', answersSchema);
 
-module.exports = { Question, Answer };
+module.exports = { Question };
