@@ -5,14 +5,13 @@ const { Question } = require('./index.js');
 
 
 const randomAnswers = (num) => {
-  const answer = {
-    username: faker.internet.userName('ink', 'squid'),
-    answer: faker.random.words(20),
-    date_posted: faker.date.past(),
-  };
   const answerArr = [];
   for (let i = 0; i < num; i += 1) {
-    answerArr.push(answer);
+    answerArr.push({
+      username: faker.internet.userName(faker.name.firstName(), faker.name.lastName()),
+      answer: faker.random.words(20),
+      date_posted: faker.date.past(),
+    });
   }
   return answerArr;
 };
