@@ -12,16 +12,25 @@ db.once('open', () => {
 
 const { Schema } = mongoose;
 const questionsSchema = new Schema({
-  // _id: Schema.Types.ObjectId,
   product_id: String,
   questions: String,
   question_url: String,
   votes: Number,
-  answers: [],
+  answers: {
+    type: Array,
+    default: [],
+  },
 });
 
+const productsSchema = new Schema({
+  product_id: String,
+  questions: {
+    type: Array,
+    default: [],
+  },
+});
 
 const Question = mongoose.model('Question', questionsSchema);
+const Product = mongoose.model('Product', productsSchema);
 
-
-module.exports = { Question };
+module.exports = { Question, Product };
