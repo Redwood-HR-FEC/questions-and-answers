@@ -22,8 +22,17 @@ const Wrapper = styled.div`
   line-height: 19px;
   color: #111;
   font-family: "Amazon Ember",Arial,sans-serif;
+  box-sizing:border-box;
+  color:rgb(17, 17, 17);
+  display:block;
+  height:144px;
+  line-height:19px;
+  margin-bottom:14px;
+  overflow-wrap:break-word;
+  position:relative;
+  text-size-adjust:100%;
+  width:800px;
 `;
-
 
 
 class App extends React.Component {
@@ -50,6 +59,7 @@ class App extends React.Component {
     const { questions } = this.state;
     return (
       <Wrapper>
+        <GlobalStyle />
         <Votes data={questions} />
       </Wrapper>
     );
