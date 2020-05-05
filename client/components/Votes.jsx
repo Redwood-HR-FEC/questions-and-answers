@@ -119,11 +119,11 @@ const QuestionWrapper = styled.div`
   // width:727.656px;
 `;
 
-const QuestionTitle = styled.div`
-  width:100px;
-  margin-left:-100px;
-  float:left;
-`;
+// const QuestionTitle = styled.div`
+//   width:100px;
+//   margin-left:-100px;
+//   float:left;
+// `;
 
 class Votes extends React.Component {
   constructor(props) {
@@ -131,22 +131,22 @@ class Votes extends React.Component {
     this.state = {
       up: 0,
       down: 0,
-      srcUp: true,
-      srcDown: false,
     };
 
     this.handleUpvotes = this.handleUpvotes.bind(this);
     this.handleDownvotes = this.handleDownvotes.bind(this);
   }
 
-  handleUpvotes() {
-    // console.log(e);
+  handleUpvotes(id, votes, productId) {
+    // console.log(id);
+    const { changeVote } = this.props;
+    changeVote(votes + 1, id, productId);
   }
 
-  handleDownvotes(e) {
-    console.log(e);
+  handleDownvotes(id, votes, productId) {
+    const { changeVote } = this.props;
+    changeVote(votes - 1, id, productId);
   }
-
 
 
   render() {
@@ -159,7 +159,7 @@ class Votes extends React.Component {
           return (
             <div key={question.product_id + question.votes}>
               <Vote>
-                <ListUp onClick={this.handleUpvotes}>
+                <ListUp onClick={() => this.handleUpvotes(question._id, question.votes, question.product_id)}>
                   <ImageUp src="https://m.media-amazon.com/images/G/01/x-locale/communities/discussion_boards/neutral_up_arrow._CB442978120_.png" alt="Up" />
                 </ListUp>
                 <ShowVotes>
@@ -167,7 +167,7 @@ class Votes extends React.Component {
                   {' '}
                   votes
                 </ShowVotes>
-                <ListDown onClick={this.handleDownvotes}>
+                <ListDown onClick={()=> this.handleDownvotes(question._id, question.votes, question.product_id)}>
                   <ImageDown src="https://m.media-amazon.com/images/G/01/x-locale/communities/discussion_boards/neutral_down_arrow._CB442978120_.png" alt="Down" />
                 </ListDown>
               </Vote>

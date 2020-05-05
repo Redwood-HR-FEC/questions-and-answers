@@ -41,10 +41,16 @@ class App extends React.Component {
     this.state = {
       questions: [],
     };
+    this.changeVotes = this.changeVotes.bind(this);
+    this.fetchData = this.fetchData.bind(this);
   }
 
   componentDidMount() {
     const id = window.location.pathname.slice(1, -1);
+    this.fetchData(id);
+  }
+
+  fetchData(id) {
     axios.get(`/questions/${id}`)
       .then((response) => {
         // console.log(response.data);
@@ -55,12 +61,24 @@ class App extends React.Component {
       });
   }
 
+  changeVotes(vote, id, productId){
+    axios.patch('/questions', {vote: vote, id: id})
+    .then((response) => {
+      // console.log('Successfully updated')
+      this.fetchData(Number(productId));
+    })
+    .catch((error) => {
+      console.log(error)
+    });
+
+  }
+
   render() {
     const { questions } = this.state;
     return (
       <Wrapper>
         <GlobalStyle />
-        <Votes data={questions} />
+        <Votes data={questions} changeVote={this.changeVotes} />
       </Wrapper>
     );
   }
