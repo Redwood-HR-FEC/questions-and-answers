@@ -3,21 +3,127 @@ import styled from 'styled-components';
 import Question from './Question.jsx';
 import Answer from './Answer.jsx';
 
-const List = styled.li`
+const ListUp = styled.li`
+  background-image: url();
   list-style-type: none;
-  text-align: center;
+  // text-align: center;
+  // background-size:100%;
+  border-image-repeat:stretch;
+  box-sizing:border-box;
+  // cursor:pointer;
+  // overflow-wrap:break-word;
+  align-items:flex-start;
 `;
 
+const ImageUp = styled.img`
+  &:hover{
+    content: url(https://m.media-amazon.com/images/G/01/x-locale/communities/discussion_boards/highlighted_up_arrow._CB442978120_.png);
+  }
+`;
+
+const ImageDown = styled.img`
+  &:hover{
+    content: url(https://m.media-amazon.com/images/G/01/x-locale/communities/discussion_boards/highlighted_down_arrow._CB442978121_.png);
+  }
+`;
+const ListDown = styled.li`
+  background-image: url();
+  list-style-type: none;
+  // text-align: center;
+  // background-size:100%;
+  border-image-repeat:stretch;
+  box-sizing:border-b ox;
+  // cursor:pointer;
+  // overflow-wrap:break-word;
+  align-items:flex-start;
+
+  &:hover {
+    background-image: url();
+  }
+`;
 const QuestionAnswerWraper = styled.div`
-padding-left: 1%;
-float: left;
+  box-sizing:border-box;
+  // color:rgb(17, 17, 17);
+  // display:block;
+  // float:left;
+  // height:634px;
+  // line-height:19px;
+  // min-height:1px;
+  // overflow-wrap:break-word;
+  // overflow-x:visible;
+  // overflow-y:visible;
+  // padding-left:7.34375px;
+  // position:relative;
+  // text-size-adjust:100%;
+  // width:735px;
+  // zoom:1;
 `;
 const Vote = styled.div`
-  width: 65px;
-  // margin-left: -65px;
-  float: left;
-  background-color: white;
+  color:rgb(17, 17, 17);
+  display:block;
+  // float:left;
+  // height:76px;
+  // line-height:19px;
+  // margin-left:-65px;
+  // min-height:1px;
+  // overflow-wrap:break-word;
+  // overflow-x:visible;
+  // overflow-y:visible;
+  // position:relative;
+  // text-size-adjust:100%;
+  // width:65px;
+  // zoom:1;
 `;
+
+const WrapperBox = styled.div`
+  box-sizing:border-box;
+  color:rgb(17, 17, 17);
+  // display:block;
+  // height:634px;
+  // line-height:19px;
+  // overflow-wrap:break-word;
+  // padding-bottom:0px;
+  // padding-left:65px;
+  // padding-right:0px;
+  // padding-top:0px;
+  // position:relative;
+  // text-size-adjust:100%;
+  // width:800px;
+`;
+
+const ShowVotes = styled.li`
+  box-sizing:border-box;
+  color:rgb(0, 0, 0);
+  display:inline;
+  // height:auto;
+  // line-height:19px;
+  // list-style-image:none;
+  // list-style-position:outside;
+  // list-style-type:none;
+  // overflow-wrap:break-word;
+  // text-align:center;
+  // text-indent:0px;
+  // text-size-adjust:100%;
+  // width:auto;
+`;
+const QuestionWrapper = styled.div`
+  box-sizing:border-box;
+  // color:rgb(17, 17, 17);
+  // display:block;
+  // height:19px;
+  // line-height:19px;
+  // margin-bottom:10px;
+  // overflow-wrap:break-word;
+  // position:relative;
+  // text-size-adjust:100%;
+  // width:727.656px;
+`;
+
+// const QuestionTitle = styled.div`
+//   width:100px;
+//   margin-left:-100px;
+//   float:left;
+// `;
 
 class Votes extends React.Component {
   constructor(props) {
@@ -31,49 +137,56 @@ class Votes extends React.Component {
     this.handleDownvotes = this.handleDownvotes.bind(this);
   }
 
-  handleUpvotes(e) {
-    console.log(e);
+  handleUpvotes(id, votes, productId) {
+    // console.log(id);
+    const { changeVote } = this.props;
+    changeVote(votes + 1, id, productId);
   }
 
-  handleDownvotes(e) {
-    console.log(e);
+  handleDownvotes(id, votes, productId) {
+    const { changeVote } = this.props;
+    changeVote(votes - 1, id, productId);
   }
+
 
   render() {
     const { data } = this.props;
-    return (
-      <div>
 
-        {data.map((question, idx) => {
+    return (
+      <WrapperBox>
+
+        {data.map((question) => {
           return (
             <div key={question.product_id + question.votes}>
               <Vote>
-                <List onClick={this.handleUpvotes}>
-                  <img src="https://m.media-amazon.com/images/G/01/x-locale/communities/discussion_boards/neutral_up_arrow._CB442978120_.png" alt="Up" />
-                </List>
-                <List>
+                <ListUp onClick={() => this.handleUpvotes(question._id, question.votes, question.product_id)}>
+                  <ImageUp src="https://m.media-amazon.com/images/G/01/x-locale/communities/discussion_boards/neutral_up_arrow._CB442978120_.png" alt="Up" />
+                </ListUp>
+                <ShowVotes>
                   { question.votes }
                   {' '}
                   votes
-                </List>
-                <List onClick={this.handleDownvotes}>
-                  <img src="https://m.media-amazon.com/images/G/01/x-locale/communities/discussion_boards/neutral_down_arrow._CB442978120_.png" alt="Down" />
-                </List>
+                </ShowVotes>
+                <ListDown onClick={()=> this.handleDownvotes(question._id, question.votes, question.product_id)}>
+                  <ImageDown src="https://m.media-amazon.com/images/G/01/x-locale/communities/discussion_boards/neutral_down_arrow._CB442978120_.png" alt="Down" />
+                </ListDown>
               </Vote>
               <QuestionAnswerWraper>
-                <div>
-                  Question
+                <QuestionWrapper>
+                  <div>Question</div>
+
                   <Question question={question.questions} url={question.question_url} />
-                </div>
+                </QuestionWrapper>
                 <div>
-                  Answer
+                  <div>Answer</div>
+
                   <Answer answer={question.answers} />
                 </div>
               </QuestionAnswerWraper>
             </div>
           );
         })}
-      </div>
+      </WrapperBox>
     );
   }
 }

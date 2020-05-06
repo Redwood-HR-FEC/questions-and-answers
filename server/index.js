@@ -22,6 +22,20 @@ app.get('/questions/:id', (req, res) => {
   });
 });
 
+app.patch('/questions', (req, res) => {
+  // console.log(req.body);
+  const { id, vote } = req.body;
+  //  vote: 83, id: '5eb0aa58fdb2ea2b7daec859' }
+  Question.update({ _id: id }, { votes: vote }, (err) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      // console.log('updated');
+      res.send('updated');
+    }
+  });
+});
+
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
 
 // , (err, data) => {
