@@ -20,44 +20,92 @@ const Arrow = styled.li`
   text-size-adjust:100%;
 `;
 
+const ATag = styled.a`
+color:rgb(0, 102, 192);
+text-decoration-style:solid;
+text-decoration-line:none;
+line-height:19px;
+
+&:hover {
+  color:rgb(196, 85, 0);
+  text-decoration-style:solid;
+  text-decoration-line:underline;
+}
+`;
+
 class Answer extends React.Component {
-  constructor(props) {
+  constructor({props}) {
     super(props);
     this.state = {
-      show: false,
+      show: 1,
+      open: false,
     };
+
     this.handleClick = this.handleClick.bind(this);
-    }
+    this.handleCollapse = this.handleCollapse.bind(this);
+  }
+
   handleClick() {
     // console.log(e);
-    this.setState({show: !this.state.show})
+    const { show, open } = this.state;
+    const len = this.props.answer.length;
+    let num = show;
+    num = show >= len ? show : num + 3;
+    // console.log(num);
+    this.setState({ show: num, open: !open });
+  }
+
+  handleCollapse() {
+    let num = 1;
+    const { open } = this.state;
+    this.setState({ show: num, open: !open });
   }
 
   render() {
     const { answer } = this.props;
-    const { show } = this.state;
-    let showMore;
-    if(show) {
-      showMore = <div></div>
-    } else {
-      {answer.slice(1).map((a) => {
-        showMore = <div key={a.date_posted + a.username}>
-            <p>{a.answer}</p>
-            <Date>By {a.username}
-              {' '}
-              on
-              {moment(a.date_posted).format('ll')}
-              {/* <Arrow></Arrow>
-              <a href="/">See more answers ({answer.length - 1})</a> */}
-              </Date>
-              </div>
-              return showMore;
-            })}
+    const { show, open } = this.state;
+    let expand = answer.length - show;
+    expand = show <= answer.length ? expand : 0;
+    let collapse = !open ? '' : <button onClick={this.handleCollapse}>Collapse all answers</button>;
+    let clickEvent = (
+      <div>
+        <Arrow />
+        <ATag onClick={this.handleClick}>
+          See more answers (
+          { expand }
+          )
+        </ATag>
+      </div>
+    );
 
-    }
+    const showAnswers = answer.slice(0, show).map((a) => (
+      <div key={a.date_posted + a.username}>
+        <p>{a.answer}</p>
+        <Date>
+          By
+          {' '}
+          {a.username}
+          {' '}
+          on
+          {' '}
+          {moment(a.date_posted).format('ll')}
+        </Date>
+      </div>
+    ));
     return (
       <div>
-        <div>{answer[0].answer}</div>
+        {showAnswers}
+        {clickEvent}
+        {collapse}
+      </div>
+    );
+  }
+}
+
+export default Answer;
+
+
+{/* <div>{answer[0].answer}</div>
               <Date>By {answer.username}
                 {' '}
                 on
@@ -67,13 +115,14 @@ class Answer extends React.Component {
                   <Arrow></Arrow>
                   <a href="" onClick={this.handleClick}> See more answers ({answer.length - 1})</a>
               </div>
-              {showMore}
-      </div>
-    );
-  }
-}
+      </div> */}
 
-export default Answer;
-
-
-
+{/* // let showMore;
+    // if (show) {
+    //   showMore = <div></div>
+    // } else {
+    //   { answer.slice(1).map((a) => {
+    //     showMore =
+    //           // return showMore;
+    //     }) }
+    // } */}
