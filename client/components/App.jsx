@@ -61,16 +61,14 @@ class App extends React.Component {
       });
   }
 
-  changeVotes(vote, id, productId){
-    axios.patch('/questions', {vote: vote, id: id})
-    .then((response) => {
-      // console.log('Successfully updated')
-      this.fetchData(Number(productId));
-    })
-    .catch((error) => {
-      console.log(error)
-    });
-
+  changeVotes(vote, id, productId) {
+    axios.patch('/questions', { vote, id })
+      .then((response) => {
+        this.fetchData(Number(productId));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   render() {
