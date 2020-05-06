@@ -103,26 +103,3 @@ class Answer extends React.Component {
 }
 
 export default Answer;
-
-
-{/* <div>{answer[0].answer}</div>
-              <Date>By {answer.username}
-                {' '}
-                on
-                {moment(answer[0].date_posted).format('ll')}
-              </Date>
-              <div>
-                  <Arrow></Arrow>
-                  <a href="" onClick={this.handleClick}> See more answers ({answer.length - 1})</a>
-              </div>
-      </div> */}
-
-{/* // let showMore;
-    // if (show) {
-    //   showMore = <div></div>
-    // } else {
-    //   { answer.slice(1).map((a) => {
-    //     showMore =
-    //           // return showMore;
-    //     }) }
-    // } */}
