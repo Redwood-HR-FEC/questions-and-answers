@@ -6,12 +6,8 @@ import Answer from './Answer.jsx';
 const ListUp = styled.li`
   background-image: url();
   list-style-type: none;
-  // text-align: center;
-  // background-size:100%;
   border-image-repeat:stretch;
   box-sizing:border-box;
-  // cursor:pointer;
-  // overflow-wrap:break-word;
   align-items:flex-start;
 `;
 
@@ -29,13 +25,10 @@ const ImageDown = styled.img`
 const ListDown = styled.li`
   background-image: url();
   list-style-type: none;
-  // text-align: center;
-  // background-size:100%;
   border-image-repeat:stretch;
   box-sizing:border-b ox;
-  // cursor:pointer;
-  // overflow-wrap:break-word;
   align-items:flex-start;
+  margin-top: 5px;
 
   &:hover {
     background-image: url();
@@ -43,87 +36,52 @@ const ListDown = styled.li`
 `;
 const QuestionAnswerWraper = styled.div`
   box-sizing:border-box;
-  // color:rgb(17, 17, 17);
-  // display:block;
-  // float:left;
-  // height:634px;
-  // line-height:19px;
-  // min-height:1px;
-  // overflow-wrap:break-word;
-  // overflow-x:visible;
-  // overflow-y:visible;
-  // padding-left:7.34375px;
-  // position:relative;
-  // text-size-adjust:100%;
-  // width:735px;
-  // zoom:1;
+  position:relative;
+  padding-left:7.34375px;
+  margin-top: 20px;
 `;
-const Vote = styled.div`
+const Vote = styled.ul`
   color:rgb(17, 17, 17);
   display:block;
-  // float:left;
-  // height:76px;
-  // line-height:19px;
-  // margin-left:-65px;
-  // min-height:1px;
-  // overflow-wrap:break-word;
-  // overflow-x:visible;
-  // overflow-y:visible;
-  // position:relative;
-  // text-size-adjust:100%;
-  // width:65px;
-  // zoom:1;
+  float:left;
+  border-right: 1px solid #ddd;
+  width:65px;
+  margin-left:-35px;
+  line-height: 19px;
+  text-align:center;
+  padding-right: 15px;
 `;
 
 const WrapperBox = styled.div`
   box-sizing:border-box;
   color:rgb(17, 17, 17);
-  // display:block;
-  // height:634px;
-  // line-height:19px;
-  // overflow-wrap:break-word;
-  // padding-bottom:0px;
-  // padding-left:65px;
-  // padding-right:0px;
-  // padding-top:0px;
-  // position:relative;
-  // text-size-adjust:100%;
-  // width:800px;
+
 `;
 
 const ShowVotes = styled.li`
   box-sizing:border-box;
   color:rgb(0, 0, 0);
   display:inline;
-  // height:auto;
-  // line-height:19px;
-  // list-style-image:none;
-  // list-style-position:outside;
-  // list-style-type:none;
-  // overflow-wrap:break-word;
-  // text-align:center;
-  // text-indent:0px;
-  // text-size-adjust:100%;
-  // width:auto;
+
 `;
 const QuestionWrapper = styled.div`
-  box-sizing:border-box;
-  // color:rgb(17, 17, 17);
-  // display:block;
-  // height:19px;
-  // line-height:19px;
-  // margin-bottom:10px;
-  // overflow-wrap:break-word;
-  // position:relative;
-  // text-size-adjust:100%;
-  // width:727.656px;
+  margin-right: 1.5rem;
+  font-weight:700;
 `;
 
-// const QuestionTitle = styled.div`
-//   width:100px;
-//   margin-left:-100px;
-//   float:left;
-// `;
+const AnswersWrapper = styled.div`
+  margin-right: 2rem;
+  box-sizing:border-box;
+  font-weight:700;
+`;
+
+const VotesQuestionsAnswers = styled.div`
+  display: flex;
+`;
+
+const Wrap = styled.div`
+  display: flex;
+`;
 
 class Votes extends React.Component {
   constructor(props) {
@@ -156,35 +114,36 @@ class Votes extends React.Component {
       <WrapperBox>
 
         {data.map((question) => {
-          return (
-            <div key={question.product_id + question.votes}>
-              <Vote>
-                <ListUp onClick={() => this.handleUpvotes(question._id, question.votes, question.product_id)}>
-                  <ImageUp src="https://m.media-amazon.com/images/G/01/x-locale/communities/discussion_boards/neutral_up_arrow._CB442978120_.png" alt="Up" />
-                </ListUp>
-                <ShowVotes>
-                  { question.votes }
-                  {' '}
-                  votes
-                </ShowVotes>
-                <ListDown onClick={()=> this.handleDownvotes(question._id, question.votes, question.product_id)}>
-                  <ImageDown src="https://m.media-amazon.com/images/G/01/x-locale/communities/discussion_boards/neutral_down_arrow._CB442978120_.png" alt="Down" />
-                </ListDown>
-              </Vote>
-              <QuestionAnswerWraper>
-                <QuestionWrapper>
-                  <div>Question</div>
+          if (question.answers.length > 0) {
+            return (
+              <VotesQuestionsAnswers key={question.product_id + question.votes}>
+                <Vote>
+                  <ListUp onClick={() => this.handleUpvotes(question._id, question.votes, question.product_id)}>
+                    <ImageUp src="https://m.media-amazon.com/images/G/01/x-locale/communities/discussion_boards/neutral_up_arrow._CB442978120_.png" alt="Up" />
+                  </ListUp>
+                  <ShowVotes>
+                    { question.votes }
+                    <br />
+                    <span>votes</span>
+                  </ShowVotes>
+                  <ListDown onClick={()=> this.handleDownvotes(question._id, question.votes, question.product_id)}>
+                    <ImageDown src="https://m.media-amazon.com/images/G/01/x-locale/communities/discussion_boards/neutral_down_arrow._CB442978120_.png" alt="Down" />
+                  </ListDown>
+                </Vote>
+                <QuestionAnswerWraper>
+                  <Wrap>
+                    <QuestionWrapper>Question:</QuestionWrapper>
+                    <Question question={question.questions} url={question.question_url} />
+                  </Wrap>
+                  <Wrap>
+                    <AnswersWrapper>Answer:</AnswersWrapper>
 
-                  <Question question={question.questions} url={question.question_url} />
-                </QuestionWrapper>
-                <div>
-                  <div>Answer</div>
-
-                  <Answer answer={question.answers} />
-                </div>
-              </QuestionAnswerWraper>
-            </div>
-          );
+                    <Answer answer={question.answers} />
+                  </Wrap>
+                </QuestionAnswerWraper>
+              </VotesQuestionsAnswers>
+            );
+          }
         })}
       </WrapperBox>
     );

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const moment = require('moment');
 
-const Date = styled.div`
+const Date = styled.span`
   color: #767676!important;
 `;
 const Arrow = styled.li`
@@ -25,12 +25,16 @@ color:rgb(0, 102, 192);
 text-decoration-style:solid;
 text-decoration-line:none;
 line-height:19px;
+padding-left: 5px;
 
 &:hover {
   color:rgb(196, 85, 0);
   text-decoration-style:solid;
   text-decoration-line:underline;
 }
+`;
+const AnswerBox = styled.div`
+  margin-bottom: 10px;
 `;
 
 class Answer extends React.Component {
@@ -79,8 +83,9 @@ class Answer extends React.Component {
     );
 
     const showAnswers = answer.slice(0, show).map((a) => (
-      <div key={a.date_posted + a.username}>
-        <p>{a.answer}</p>
+      <AnswerBox key={a.date_posted + a.username}>
+        <span>{a.answer}</span>
+        <br />
         <Date>
           By
           {' '}
@@ -90,7 +95,7 @@ class Answer extends React.Component {
           {' '}
           {moment(a.date_posted).format('ll')}
         </Date>
-      </div>
+      </AnswerBox>
     ));
     return (
       <div>
