@@ -2,6 +2,7 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import Votes from './Votes.jsx';
+import Search from './Search.jsx';
 
 const axios = require('axios');
 
@@ -28,12 +29,19 @@ const Wrapper = styled.div`
   height:144px;
   line-height:19px;
   margin-bottom:14px;
-  overflow-wrap:break-word;
+  // overflow-wrap:break-word;
   position:relative;
   text-size-adjust:100%;
   width:800px;
 `;
 
+const H2 = styled.h2`
+  color: #111!important;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 1.3;
+  padding-bottom: 4px;
+`;
 
 class App extends React.Component {
   constructor(props) {
@@ -75,6 +83,8 @@ class App extends React.Component {
     const { questions } = this.state;
     return (
       <Wrapper>
+        <H2>Customer questions & answers</H2>
+        <Search />
         <GlobalStyle />
         <Votes data={questions} changeVote={this.changeVotes} />
       </Wrapper>
