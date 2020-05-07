@@ -18,6 +18,10 @@ module.exports = {
   // Automatically clear mock calls and instances between every test
   clearMocks: true,
 
+  // A list of paths to modules that run some code to configure or set up
+  // the testing framework before each test
+  setupFilesAfterEnv: ['jest-enzyme'],
+
   // An array of file extensions your modules use
   moduleFileExtensions: ['js', 'jsx'],
 
