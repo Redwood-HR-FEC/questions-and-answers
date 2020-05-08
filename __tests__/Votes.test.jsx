@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Votes from '../client/components/Votes';
+import Question from '../client/components/Question';
 
 const sampleData = [
   {
@@ -34,5 +35,46 @@ describe('Unit test for Votes component', () => {
       />
     );
     expect(wrapper).toExist();
+  });
+});
+
+describe('Mouse events', () => {
+  // test('mouse hover events', () => {
+  //   const wrapper = mount(
+  //     <Votes
+  //       data={sampleData}
+  //       changeVote={() => {}}
+  //     />,
+  //   );
+  //   const liTag = wrapper.find('.upVote');
+  //   liTag.simulate('click');
+
+  // });
+  test('should update votes +1 when click vote up li tag', () => {
+    const mockChangeVote = jest.fn();
+    const wrapper = mount(
+      <Votes
+        data={sampleData}
+        changeVote={mockChangeVote}
+      />,
+    );
+    const liTag = wrapper.find('img').first();
+    liTag.simulate('click');
+    expect(mockChangeVote).toHaveBeenCalled();
+
+  });
+});
+
+describe('Unit test for Question component', () => {
+  const sampleQuestion = 'tan Center Kansas Comoro Franc Developer sky blue Wooden open-source Designer Lead';
+  const sampleURL = 'http://larissa.name';
+  test('should render 1 question', () => {
+    const wrapper = shallow(
+      <Question
+        question={sampleQuestion}
+        url={sampleURL}
+      />
+    );
+    expect(wrapper).toHaveLength(1);
   });
 });

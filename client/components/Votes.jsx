@@ -118,7 +118,7 @@ class Votes extends React.Component {
             return (
               <VotesQuestionsAnswers key={question.product_id + question.votes}>
                 <Vote>
-                  <ListUp onClick={() => this.handleUpvotes(question._id, question.votes, question.product_id)}>
+                  <ListUp onClick={() => this.handleUpvotes(question._id, question.votes, question.product_id)} className="upVote">
                     <ImageUp src="https://m.media-amazon.com/images/G/01/x-locale/communities/discussion_boards/neutral_up_arrow._CB442978120_.png" alt="Up" />
                   </ListUp>
                   <ShowVotes>

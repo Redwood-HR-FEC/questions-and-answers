@@ -70,8 +70,8 @@ class Answer extends React.Component {
     const { show, open } = this.state;
     let expand = answer.length - show;
     expand = show <= answer.length ? expand : 0;
-    let collapse = !open ? '' : <button onClick={this.handleCollapse}>Collapse all answers</button>;
-    let clickEvent = (
+    const collapse = !open ? '' : <button onClick={this.handleCollapse}>Collapse all answers</button>;
+    const clickEvent = (
       <div>
         <Arrow />
         <ATag onClick={this.handleClick}>
