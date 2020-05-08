@@ -59,29 +59,6 @@ describe('Unit test for Votes component', () => {
 });
 
 describe('Mouse events', () => {
-  // test('mouse hover events', () => {
-  //   const wrapper = mount(
-  //     <Votes
-  //       data={sampleData}
-  //       changeVote={() => {}}
-  //     />,
-  //   );
-  //   const liTag = wrapper.find('.upVote');
-  //   liTag.simulate('click');
-  // });
-  // it('mouseover', () => {
-  //   const mockChangeVote = jest.fn();
-  //   const wrapper = shallow(
-  //     <Votes
-  //       data={sampleData}
-  //       changeVote={mockChangeVote}
-  //     />,
-  //   );
-  //   const spy = jest.spyOn(wrapper.instance(), "showlog");
-  //   wrapper.instance().forceUpdate();
-  //   wrapper.find("li").first().simulate("mouseover");
-  //   expect(spy).toHaveBeenCalled();
-  // });
   test('mouseclick methods to be instance of Votes', () => {
     const wrapper = shallow(
       <Votes

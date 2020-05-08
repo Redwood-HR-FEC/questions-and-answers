@@ -34,6 +34,15 @@ describe('Unit test for Answer component', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
+
+  it ('accepts sampleAnswers props', () => {
+    const wrapper = mount(
+      <Answer
+        answer={sampleAnswers}
+      />,
+    );
+    expect(wrapper.props().answer).toEqual(sampleAnswers);
+  });
 });
 
 describe('Toggle See more', () => {
@@ -49,21 +58,33 @@ describe('Toggle See more', () => {
   });
 
   it('should expand to show more items when the See more items is clicked', () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <Answer
         answer={sampleAnswers}
       />,
     );
     // Testing Initial State before a click event
     expect(wrapper.state("open")).toBe(false);
+
+    // Testing state after click event
+    wrapper.find('a').simulate('click');
+    expect(wrapper.state("open")).toBe(true);
   });
 
-  it ('accepts sampleAnswers props', () => {
+  //TODO: fix this
+  it('should collapse to show only 1 item when the Collapse button is clicked', () => {
     const wrapper = mount(
       <Answer
         answer={sampleAnswers}
       />,
     );
-    expect(wrapper.props().answer).toEqual(sampleAnswers);
+    // Testing Initial State before a click event
+    // expect(wrapper.state("open")).toBe(false);
+
+    // Testing state after click event
+    wrapper.find('button').simulate('click');
+    expect(wrapper.state('show')).toBe(1);
+    expect(wrapper.state('open')).toBe(false);
   });
+
 });
