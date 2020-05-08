@@ -126,7 +126,7 @@ class Votes extends React.Component {
                     <br />
                     <span>votes</span>
                   </ShowVotes>
-                  <ListDown onClick={()=> this.handleDownvotes(question._id, question.votes, question.product_id)}>
+                  <ListDown onClick={() => this.handleDownvotes(question._id, question.votes, question.product_id)}>
                     <ImageDown src="https://m.media-amazon.com/images/G/01/x-locale/communities/discussion_boards/neutral_down_arrow._CB442978120_.png" alt="Down" />
                   </ListDown>
                 </Vote>

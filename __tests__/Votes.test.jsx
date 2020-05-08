@@ -36,6 +36,26 @@ describe('Unit test for Votes component', () => {
     );
     expect(wrapper).toExist();
   });
+
+  it ('accepts ussampleDataer props', () => {
+    const wrapper = mount(
+      <Votes
+        data={sampleData}
+        changeVote={() => {}}
+      />,
+    );
+    expect(wrapper.props().data).toEqual(sampleData);
+  });
+
+  it("renders correctly", () => {
+    const wrapper = shallow(
+      <Votes
+        data={sampleData}
+        changeVote={() => {}}
+      />,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 });
 
 describe('Mouse events', () => {
@@ -48,9 +68,32 @@ describe('Mouse events', () => {
   //   );
   //   const liTag = wrapper.find('.upVote');
   //   liTag.simulate('click');
-
   // });
-  test('should update votes +1 when click vote up li tag', () => {
+  // it('mouseover', () => {
+  //   const mockChangeVote = jest.fn();
+  //   const wrapper = shallow(
+  //     <Votes
+  //       data={sampleData}
+  //       changeVote={mockChangeVote}
+  //     />,
+  //   );
+  //   const spy = jest.spyOn(wrapper.instance(), "showlog");
+  //   wrapper.instance().forceUpdate();
+  //   wrapper.find("li").first().simulate("mouseover");
+  //   expect(spy).toHaveBeenCalled();
+  // });
+  test('mouseclick methods to be instance of Votes', () => {
+    const wrapper = shallow(
+      <Votes
+        data={sampleData}
+        changeVote={() => {}}
+      />,
+    );
+    wrapper.instance().handleUpvotes();
+    wrapper.instance().handleDownvotes();
+  });
+
+  test('should update votes  when click li tag', () => {
     const mockChangeVote = jest.fn();
     const wrapper = mount(
       <Votes
@@ -58,11 +101,27 @@ describe('Mouse events', () => {
         changeVote={mockChangeVote}
       />,
     );
-    const liTag = wrapper.find('img').first();
-    liTag.simulate('click');
+    const liTagUp = wrapper.find('img').first();
+    liTagUp.simulate('click');
     expect(mockChangeVote).toHaveBeenCalled();
 
+    const liTagDown = wrapper.find('img').last();
+    liTagDown.simulate('click');
+    expect(mockChangeVote).toHaveBeenCalled();
   });
+
+  // test('should update votes -1 when click vote down li tag', () => {
+  //   const mockChangeVote = jest.fn();
+  //   const wrapper = mount(
+  //     <Votes
+  //       data={sampleData}
+  //       changeVote={mockChangeVote}
+  //     />,
+  //   );
+  //   const liTag = wrapper.find('img').last();
+  //   liTag.simulate('click');
+  //   expect(mockChangeVote).toHaveBeenCalled();
+  // });
 });
 
 describe('Unit test for Question component', () => {

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Unit test for Question component renders correctly 1`] = `
+<Question__QuestionWrapper>
+  <Question__ATag
+    href="http://larissa.name"
+  >
+    tan Center Kansas Comoro Franc Developer sky blue Wooden open-source Designer Lead
+    ?
+  </Question__ATag>
+</Question__QuestionWrapper>
+`;

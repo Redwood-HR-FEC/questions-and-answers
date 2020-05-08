@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Unit Tests for App renders correctly 1`] = `
+<App__Wrapper>
+  <App__H2>
+    Customer questions & answers
+  </App__H2>
+  <Search />
+  <Memo(GlobalStyleComponent) />
+  <Votes
+    changeVote={[Function]}
+    data={Array []}
+  />
+</App__Wrapper>
+`;

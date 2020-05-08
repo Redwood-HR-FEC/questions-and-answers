@@ -25,9 +25,29 @@ describe('Unit test for Answer component', () => {
     );
     expect(wrapper).toExist();
   });
+
+  it("renders correctly", () => {
+    const wrapper = shallow(
+      <Answer
+        answer={sampleAnswers}
+      />,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 });
 
 describe('Toggle See more', () => {
+
+  test('mouseclick methods', () => {
+    const wrapper = shallow(
+      <Answer
+        answer={sampleAnswers}
+      />,
+    );
+    wrapper.instance().handleClick();
+    wrapper.instance().handleCollapse();
+  });
+
   it('should expand to show more items when the See more items is clicked', () => {
     const wrapper = shallow(
       <Answer
@@ -36,5 +56,14 @@ describe('Toggle See more', () => {
     );
     // Testing Initial State before a click event
     expect(wrapper.state("open")).toBe(false);
+  });
+
+  it ('accepts sampleAnswers props', () => {
+    const wrapper = mount(
+      <Answer
+        answer={sampleAnswers}
+      />,
+    );
+    expect(wrapper.props().answer).toEqual(sampleAnswers);
   });
 });

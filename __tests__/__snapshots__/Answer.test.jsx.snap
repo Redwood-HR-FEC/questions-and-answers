@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Unit test for Answer component renders correctly 1`] = `
+<div>
+  <Answer__AnswerBox
+    key="2019-12-07T17:14:54.404ZAhmad.Bruen"
+  >
+    <span>
+      Ergonomic green workforce Row 24/365 initiative Divide JBOD Money Market Account circuit Ergonomic Wooden Shoes Ergonomic backing up Handcrafted Radial wireless hub optical Up-sized Aruba
+    </span>
+    <br />
+    <Answer__Date>
+      By
+       
+      Ahmad.Bruen
+       
+      on
+       
+      Dec 7, 2019
+    </Answer__Date>
+  </Answer__AnswerBox>
+  <div>
+    <Answer__Arrow />
+    <Answer__ATag
+      onClick={[Function]}
+    >
+      See more answers (
+      1
+      )
+    </Answer__ATag>
+  </div>
+</div>
+`;
