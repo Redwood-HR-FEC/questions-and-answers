@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Unit test for Votes component renders correctly 1`] = `
+<Votes__WrapperBox>
+  <Votes__VotesQuestionsAnswers
+    key="06826"
+  >
+    <Votes__Vote>
+      <Votes__ListUp
+        className="upVote"
+        onClick={[Function]}
+      >
+        <Votes__ImageUp
+          alt="Up"
+          src="https://m.media-amazon.com/images/G/01/x-locale/communities/discussion_boards/neutral_up_arrow._CB442978120_.png"
+        />
+      </Votes__ListUp>
+      <Votes__ShowVotes>
+        26
+        <br />
+        <span>
+          votes
+        </span>
+      </Votes__ShowVotes>
+      <Votes__ListDown
+        onClick={[Function]}
+      >
+        <Votes__ImageDown
+          alt="Down"
+          src="https://m.media-amazon.com/images/G/01/x-locale/communities/discussion_boards/neutral_down_arrow._CB442978120_.png"
+        />
+      </Votes__ListDown>
+    </Votes__Vote>
+    <Votes__QuestionAnswerWraper>
+      <Votes__Wrap>
+        <Votes__QuestionWrapper>
+          Question:
+        </Votes__QuestionWrapper>
+        <Question
+          question="tan Center Kansas Comoro Franc Developer sky blue Wooden open-source Designer Lead"
+          url="http://larissa.name"
+        />
+      </Votes__Wrap>
+      <Votes__Wrap>
+        <Votes__AnswersWrapper>
+          Answer:
+        </Votes__AnswersWrapper>
+        <Answer
+          answer={
+            Array [
+              Object {
+                "answer": "Ergonomic green workforce Row 24/365 initiative Divide JBOD Money Market Account circuit Ergonomic Wooden Shoes Ergonomic backing up Handcrafted Radial wireless hub optical Up-sized Aruba",
+                "date_posted": "2019-12-07T17:14:54.404Z",
+                "username": "Ahmad.Bruen",
+              },
+              Object {
+                "answer": "Automated deposit silver Strategist Division Berkshire Business-focused Montana deposit Bahamas Rustic Plastic relationships integrated Oklahoma collaborative Chips reboot primary Lebanese Pound",
+                "date_posted": "2019-10-24T15:58:43.321Z",
+                "username": "Vivien75",
+              },
+            ]
+          }
+        />
+      </Votes__Wrap>
+    </Votes__QuestionAnswerWraper>
+  </Votes__VotesQuestionsAnswers>
+</Votes__WrapperBox>
+`;
