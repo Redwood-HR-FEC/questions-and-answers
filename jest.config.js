@@ -32,4 +32,6 @@ module.exports = {
   testEnvironmentOptions: {
     enzymeAdapter: 'react16',
   },
+
+  preset: '@shelf/jest-mongodb',
 };

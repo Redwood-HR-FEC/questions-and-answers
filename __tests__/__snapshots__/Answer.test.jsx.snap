@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Unit test for Answer component renders correctly 1`] = `
+exports[`Unit test for Answer component SnapShot test: renders correctly 1`] = `
 <div>
   <Answer__AnswerBox
     key="2019-12-07T17:14:54.404ZAhmad.Bruen"

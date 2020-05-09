@@ -71,7 +71,7 @@ class Answer extends React.Component {
     let expand = answer.length - show;
     expand = show <= answer.length ? expand : 0;
     const collapse = !open ? '' : <button onClick={this.handleCollapse}>Collapse all answers</button>;
-    const clickEvent = (
+    const clickEvent = answer.length > 1 && expand !== 0 ?
       <div>
         <Arrow />
         <ATag onClick={this.handleClick}>
@@ -79,8 +79,7 @@ class Answer extends React.Component {
           { expand }
           )
         </ATag>
-      </div>
-    );
+      </div> : '';
 
     const showAnswers = answer.slice(0, show).map((a) => (
       <AnswerBox key={a.date_posted + a.username}>
