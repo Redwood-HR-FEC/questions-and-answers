@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import Answer from '../client/components/Answer';
 
 
@@ -26,7 +26,7 @@ describe('Unit test for Answer component', () => {
     expect(wrapper).toExist();
   });
 
-  it("renders correctly", () => {
+  it("SnapShot test: renders correctly", () => {
     const wrapper = shallow(
       <Answer
         answer={sampleAnswers}
@@ -68,20 +68,19 @@ describe('Toggle See more', () => {
 
     // Testing state after click event
     wrapper.find('a').simulate('click');
+    expect(wrapper.state("show")).toBeGreaterThan(1);
     expect(wrapper.state("open")).toBe(true);
   });
 
-  //TODO: fix this
   it('should collapse to show only 1 item when the Collapse button is clicked', () => {
     const wrapper = mount(
       <Answer
         answer={sampleAnswers}
       />,
     );
-    // Testing Initial State before a click event
-    // expect(wrapper.state("open")).toBe(false);
-
-    // Testing state after click event
+    // Testing Initial State when answers are expanded
+    wrapper.find('a').simulate('click');
+    // Testing state after button click event
     wrapper.find('button').simulate('click');
     expect(wrapper.state('show')).toBe(1);
     expect(wrapper.state('open')).toBe(false);

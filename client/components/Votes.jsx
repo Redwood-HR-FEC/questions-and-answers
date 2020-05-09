@@ -4,7 +4,6 @@ import Question from './Question.jsx';
 import Answer from './Answer.jsx';
 
 const ListUp = styled.li`
-  background-image: url();
   list-style-type: none;
   border-image-repeat:stretch;
   box-sizing:border-box;
@@ -23,16 +22,11 @@ const ImageDown = styled.img`
   }
 `;
 const ListDown = styled.li`
-  background-image: url();
   list-style-type: none;
   border-image-repeat:stretch;
   box-sizing:border-b ox;
   align-items:flex-start;
   margin-top: 5px;
-
-  &:hover {
-    background-image: url();
-  }
 `;
 const QuestionAnswerWraper = styled.div`
   box-sizing:border-box;
@@ -83,16 +77,54 @@ const Wrap = styled.div`
   display: flex;
 `;
 
+const ExpandButton = styled.div`
+  position: absolute;
+  left: 18%;
+  background: #e7e9ec;
+  border-radius: 3px;
+  border-color: #ADB1B8 #A2A6AC #8D9096;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  text-align: center;
+  text-decoration: none!important;
+  vertical-align: middle;
+  vertical-align:middle;
+  width:232.359px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  &:hover {
+    border-color: #a2a6ac #979aa1 #82858a;
+    background: #dee0e3;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;
+    text-align: center;
+    text-decoration: none!important;
+    vertical-align: middle;
+  }
+`;
+const Span = styled.span`
+line-height: 29px;
+line-height: 29px;
+padding: 0 10px 0 11px;
+`;
 class Votes extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      up: 0,
-      down: 0,
+      show: 4,
+      open: false,
     };
 
     this.handleUpvotes = this.handleUpvotes.bind(this);
     this.handleDownvotes = this.handleDownvotes.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleUpvotes(id, votes, productId) {
@@ -106,14 +138,37 @@ class Votes extends React.Component {
     changeVote(votes - 1, id, productId);
   }
 
+  handleClick() {
+    // console.log(e);
+    const { show, open } = this.state;
+    const len = this.props.data.length;
+    let num = show;
+    num = show >= len ? show : num + 3;
+    // console.log(num);
+    this.setState({ show: num, open: !open });
+  }
 
   render() {
     const { data } = this.props;
+    const { show, open } = this.state;
+    let expand = data.length - show;
+    expand = show <= data.length ? expand : 0;
+    const clickEvent = data.length > 4 && expand !== 0 ? (
+    <div>
+      <ExpandButton onClick={this.handleClick} className="expandButton">
+        <Span>
+          See more answered questions (
+            {expand}
+          )
+        </Span>
+      </ExpandButton>
+    </div>
+    ) : '';
 
     return (
       <WrapperBox>
 
-        {data.map((question) => {
+        {data.slice(0, show).map((question) => {
           if (question.answers.length > 0) {
             return (
               <VotesQuestionsAnswers key={question.product_id + question.votes}>
@@ -145,6 +200,7 @@ class Votes extends React.Component {
             );
           }
         })}
+        {clickEvent}
       </WrapperBox>
     );
   }

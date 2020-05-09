@@ -3,7 +3,7 @@
 exports[`Unit test for Votes component renders correctly 1`] = `
 <Votes__WrapperBox>
   <Votes__VotesQuestionsAnswers
-    key="06826"
+    key="00951"
   >
     <Votes__Vote>
       <Votes__ListUp
@@ -16,7 +16,7 @@ exports[`Unit test for Votes component renders correctly 1`] = `
         />
       </Votes__ListUp>
       <Votes__ShowVotes>
-        26
+        51
         <br />
         <span>
           votes
@@ -37,8 +37,8 @@ exports[`Unit test for Votes component renders correctly 1`] = `
           Question:
         </Votes__QuestionWrapper>
         <Question
-          question="tan Center Kansas Comoro Franc Developer sky blue Wooden open-source Designer Lead"
-          url="http://larissa.name"
+          question="payment sensor Principal programming dynamic Concrete deposit Hat knowledge base communities"
+          url="http://peyton.net"
         />
       </Votes__Wrap>
       <Votes__Wrap>
@@ -49,14 +49,29 @@ exports[`Unit test for Votes component renders correctly 1`] = `
           answer={
             Array [
               Object {
-                "answer": "Ergonomic green workforce Row 24/365 initiative Divide JBOD Money Market Account circuit Ergonomic Wooden Shoes Ergonomic backing up Handcrafted Radial wireless hub optical Up-sized Aruba",
-                "date_posted": "2019-12-07T17:14:54.404Z",
-                "username": "Ahmad.Bruen",
+                "answer": "Home Loan Account Handmade full-range Designer Fish Devolved Senior Incredible Steel Tuna Haven Pre-emptive Customer Tasty Philippine Peso payment Officer even-keeled embrace Books transmitter matrix",
+                "date_posted": "2019-06-30T19:50:33.238Z",
+                "username": "Hayley25",
               },
               Object {
-                "answer": "Automated deposit silver Strategist Division Berkshire Business-focused Montana deposit Bahamas Rustic Plastic relationships integrated Oklahoma collaborative Chips reboot primary Lebanese Pound",
-                "date_posted": "2019-10-24T15:58:43.321Z",
-                "username": "Vivien75",
+                "answer": "Licensed Tuna West Virginia Congolese Franc digital Outdoors scalable indexing Avon microchip Gorgeous Steel Car withdrawal gold whiteboard panel Cambridgeshire Zloty Computers benchmark Gloves",
+                "date_posted": "2019-06-20T18:40:19.282Z",
+                "username": "Dennis.Sawayn68",
+              },
+              Object {
+                "answer": "Libyan Arab Jamahiriya Small Underpass Games Handcrafted Cotton Mouse Executive groupware Optional Functionality Chair connect override dynamic CFA Franc BEAC system engine Chicken port lavender partnerships Investor",
+                "date_posted": "2019-12-27T00:09:31.414Z",
+                "username": "Parker.Goodwin",
+              },
+              Object {
+                "answer": "primary back-end Handcrafted Plastic Table bus Computers aggregate azure 6th generation Singapore Future Representative infomediaries virtual Savings Account strategize incubate neural Central Maine Chair",
+                "date_posted": "2019-10-26T11:22:17.064Z",
+                "username": "Elinor37",
+              },
+              Object {
+                "answer": "Frozen Face to face Pakistan Rupee Assimilated Open-architected JSON Lebanon primary Handmade Bedfordshire Kuwaiti Dinar connecting sticky Chair Kip 1080p compress Investment Account Armenian Dram Security",
+                "date_posted": "2019-12-06T16:59:10.145Z",
+                "username": "Gennaro_Hauck",
               },
             ]
           }
@@ -64,5 +79,213 @@ exports[`Unit test for Votes component renders correctly 1`] = `
       </Votes__Wrap>
     </Votes__QuestionAnswerWraper>
   </Votes__VotesQuestionsAnswers>
+  <Votes__VotesQuestionsAnswers
+    key="00948"
+  >
+    <Votes__Vote>
+      <Votes__ListUp
+        className="upVote"
+        onClick={[Function]}
+      >
+        <Votes__ImageUp
+          alt="Up"
+          src="https://m.media-amazon.com/images/G/01/x-locale/communities/discussion_boards/neutral_up_arrow._CB442978120_.png"
+        />
+      </Votes__ListUp>
+      <Votes__ShowVotes>
+        48
+        <br />
+        <span>
+          votes
+        </span>
+      </Votes__ShowVotes>
+      <Votes__ListDown
+        onClick={[Function]}
+      >
+        <Votes__ImageDown
+          alt="Down"
+          src="https://m.media-amazon.com/images/G/01/x-locale/communities/discussion_boards/neutral_down_arrow._CB442978120_.png"
+        />
+      </Votes__ListDown>
+    </Votes__Vote>
+    <Votes__QuestionAnswerWraper>
+      <Votes__Wrap>
+        <Votes__QuestionWrapper>
+          Question:
+        </Votes__QuestionWrapper>
+        <Question
+          question="Fantastic microchip Shoes cross-media Small Plastic Pizza incubate invoice Wooden Run lavender"
+          url="https://toni.com"
+        />
+      </Votes__Wrap>
+      <Votes__Wrap>
+        <Votes__AnswersWrapper>
+          Answer:
+        </Votes__AnswersWrapper>
+        <Answer
+          answer={
+            Array [
+              Object {
+                "answer": "Investment Account Sleek user-facing deliverables payment Somali Shilling Ergonomic feed driver hard drive connect Concrete attitude-oriented Heard Island and McDonald Islands Consultant online generating bypass Cambridgeshire front-end",
+                "date_posted": "2019-10-11T08:01:52.377Z",
+                "username": "Laurie33",
+              },
+            ]
+          }
+        />
+      </Votes__Wrap>
+    </Votes__QuestionAnswerWraper>
+  </Votes__VotesQuestionsAnswers>
+  <Votes__VotesQuestionsAnswers
+    key="0098"
+  >
+    <Votes__Vote>
+      <Votes__ListUp
+        className="upVote"
+        onClick={[Function]}
+      >
+        <Votes__ImageUp
+          alt="Up"
+          src="https://m.media-amazon.com/images/G/01/x-locale/communities/discussion_boards/neutral_up_arrow._CB442978120_.png"
+        />
+      </Votes__ListUp>
+      <Votes__ShowVotes>
+        8
+        <br />
+        <span>
+          votes
+        </span>
+      </Votes__ShowVotes>
+      <Votes__ListDown
+        onClick={[Function]}
+      >
+        <Votes__ImageDown
+          alt="Down"
+          src="https://m.media-amazon.com/images/G/01/x-locale/communities/discussion_boards/neutral_down_arrow._CB442978120_.png"
+        />
+      </Votes__ListDown>
+    </Votes__Vote>
+    <Votes__QuestionAnswerWraper>
+      <Votes__Wrap>
+        <Votes__QuestionWrapper>
+          Question:
+        </Votes__QuestionWrapper>
+        <Question
+          question="HTTP Mayotte Handmade Concrete Ball Integration program Refined Granite Chair reciprocal metrics Representative Intelligent Rubber Chicken"
+          url="http://cornell.name"
+        />
+      </Votes__Wrap>
+      <Votes__Wrap>
+        <Votes__AnswersWrapper>
+          Answer:
+        </Votes__AnswersWrapper>
+        <Answer
+          answer={
+            Array [
+              Object {
+                "answer": "Texas Steel Licensed Rubber Car withdrawal Kroon orchid virtual Cambridgeshire connect Strategist copying Baby Personal Loan Account Clothing JBOD SDD Steel Generic Granite Towels Personal Loan Account Specialist",
+                "date_posted": "2019-08-16T23:49:56.574Z",
+                "username": "Samanta.Haley18",
+              },
+              Object {
+                "answer": "Borders Bedfordshire invoice Seamless Metal out-of-the-box Industrial Steel viral leading-edge Syrian Pound Concrete Practical Soft Shirt Computers calculating Fords virtual magenta efficient Sleek",
+                "date_posted": "2019-11-08T06:01:46.631Z",
+                "username": "Marguerite_Zboncak23",
+              },
+              Object {
+                "answer": "maximize facilitate Shoes Open-source Texas deposit primary Ergonomic Concrete Pants standardization deposit monitor Avon Producer bandwidth synergy Handmade Functionality infomediaries redundant Universal",
+                "date_posted": "2019-12-09T14:30:27.831Z",
+                "username": "Nakia_Stroman0",
+              },
+            ]
+          }
+        />
+      </Votes__Wrap>
+    </Votes__QuestionAnswerWraper>
+  </Votes__VotesQuestionsAnswers>
+  <Votes__VotesQuestionsAnswers
+    key="00992"
+  >
+    <Votes__Vote>
+      <Votes__ListUp
+        className="upVote"
+        onClick={[Function]}
+      >
+        <Votes__ImageUp
+          alt="Up"
+          src="https://m.media-amazon.com/images/G/01/x-locale/communities/discussion_boards/neutral_up_arrow._CB442978120_.png"
+        />
+      </Votes__ListUp>
+      <Votes__ShowVotes>
+        92
+        <br />
+        <span>
+          votes
+        </span>
+      </Votes__ShowVotes>
+      <Votes__ListDown
+        onClick={[Function]}
+      >
+        <Votes__ImageDown
+          alt="Down"
+          src="https://m.media-amazon.com/images/G/01/x-locale/communities/discussion_boards/neutral_down_arrow._CB442978120_.png"
+        />
+      </Votes__ListDown>
+    </Votes__Vote>
+    <Votes__QuestionAnswerWraper>
+      <Votes__Wrap>
+        <Votes__QuestionWrapper>
+          Question:
+        </Votes__QuestionWrapper>
+        <Question
+          question="parsing infrastructures back up bluetooth transmitter withdrawal Gorgeous Plastic Gloves Internal core Kenyan Shilling"
+          url="https://rebecca.info"
+        />
+      </Votes__Wrap>
+      <Votes__Wrap>
+        <Votes__AnswersWrapper>
+          Answer:
+        </Votes__AnswersWrapper>
+        <Answer
+          answer={
+            Array [
+              Object {
+                "answer": "red Bike Plastic customized system ivory Row Berkshire SAS Rubber pink models multi-state Soft Bedfordshire Incredible Granite Soap cohesive reboot bypassing Universal",
+                "date_posted": "2019-10-28T14:02:08.617Z",
+                "username": "Ed.Prosacco",
+              },
+              Object {
+                "answer": "Checking Account Unbranded Handcrafted Intranet interactive paradigms global Team-oriented Orchestrator Rand Loti Cyprus American Samoa Netherlands Antilles withdrawal bus olive Tasty Lesotho Soft Technician",
+                "date_posted": "2019-11-30T02:21:08.791Z",
+                "username": "Penelope.Smith33",
+              },
+              Object {
+                "answer": "programming core Concrete Beauty sexy Practical Pants back-end Quality revolutionize global port Awesome Rubber Computer Direct Program national Savings Account Field Knolls online",
+                "date_posted": "2020-05-03T18:22:58.403Z",
+                "username": "Ofelia76",
+              },
+              Object {
+                "answer": "Liaison Rapids Common Industrial payment withdrawal compress Grocery neural port Nevada Shoes Trail Chips program payment Towels dot-com Rand deposit",
+                "date_posted": "2019-09-02T18:20:37.226Z",
+                "username": "Harmony82",
+              },
+            ]
+          }
+        />
+      </Votes__Wrap>
+    </Votes__QuestionAnswerWraper>
+  </Votes__VotesQuestionsAnswers>
+  <div>
+    <Votes__ExpandButton
+      className="expandButton"
+      onClick={[Function]}
+    >
+      <Votes__Span>
+        See more answered questions (
+        1
+        )
+      </Votes__Span>
+    </Votes__ExpandButton>
+  </div>
 </Votes__WrapperBox>
 `;
