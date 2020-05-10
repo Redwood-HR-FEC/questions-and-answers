@@ -8,7 +8,7 @@ module.exports = {
 
   // The glob patterns Jest uses to detect test files
   collectCoverageFrom: [
-    '**/*.{js,jsx}',
+    '**/*.{jsx}',
     '!**/node_modules/**',
     '!**/public/**',
     '!**/coverage/**',
