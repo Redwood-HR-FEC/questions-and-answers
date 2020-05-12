@@ -26,10 +26,8 @@ const Wrapper = styled.div`
   box-sizing:border-box;
   color:rgb(17, 17, 17);
   display:block;
-  height:144px;
   line-height:19px;
   margin-bottom:14px;
-  // overflow-wrap:break-word;
   position:relative;
   text-size-adjust:100%;
   width:800px;
