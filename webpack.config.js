@@ -1,11 +1,18 @@
 const path = require('path');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'client', 'index.jsx'),
+  entry: path.resolve(__dirname, 'client', 'index.js'),
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
   },
+  // optimization: {
+  //   splitChunks: {
+  //     // chunks: 'all',
+  //     minSize: 100000,
+  //     maxSize: 250000,
+  //   },
+  // },
   module: {
     rules: [
       {
@@ -15,5 +22,5 @@ module.exports = {
       },
     ],
   },
-  mode: 'development',
+  mode: 'production',
 };

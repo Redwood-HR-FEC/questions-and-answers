@@ -6,11 +6,11 @@
   "author": "hanguyen",
   "license": "",
   "engines": {
-    "node": ">=6.13.0"
+    "node": ">=10.19.0"
   },
   "scripts": {
-    "build": "webpack --watch",
-    "start": "nodemon server",
+    "build": "webpack",
+    "start": "node server/index.js",
     "seed": "node database/seeding.js",
     "test": "jest",
     "test:watch": "npm run test -- --watch",
@@ -25,13 +25,9 @@
     "jest-styled-components": "^7.0.2",
     "moment": "^2.25.3",
     "mongoose": "^5.9.11",
-    "morgan": "^1.10.0",
     "nodemon": "^2.0.3",
-    "puppeteer": "^3.0.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-hot-loader": "^4.12.21",
-    "react-search-box": "^2.0.2",
     "styled-components": "^5.1.0"
   },
   "devDependencies": {
