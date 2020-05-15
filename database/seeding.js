@@ -26,7 +26,7 @@ const createQuestions = (num) => {
     answers: randomAnswers(faker.random.number(5)),
   }, (err) => {
     // eslint-disable-next-line no-console
-    if (err) return console.log(err);
+    if (err) return console.error(err);
     // saved!
     // mongoose.connection.close();
   });

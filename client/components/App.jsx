@@ -63,7 +63,7 @@ class App extends React.Component {
         this.setState({ questions: response.data });
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   }
 
@@ -73,7 +73,7 @@ class App extends React.Component {
         this.fetchData(Number(productId));
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   }
 

@@ -6,7 +6,7 @@ const moment = require('moment');
 const Date = styled.span`
   color: #767676!important;
 `;
-const Arrow = styled.li`
+const Arrow = styled.span`
   background-image: url(https://m.media-amazon.com/images/G/01/AUIClients/AmazonUIIcon-sprite_1x-e9434610f810a3a99b3f0e49c1b938c9d76628b8._V2_.png);
   background-position-x:-82px;
   background-position-y:-293px;

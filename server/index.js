@@ -1,3 +1,4 @@
+const compression = require('compression');
 const express = require('express');
 const { Question } = require('../database/index.js');
 
@@ -6,6 +7,7 @@ const PORT = 3001;
 
 // middleware
 app.use(express.json());
+app.use(compression());
 
 // static
 app.use('/:id', express.static('public'));
@@ -25,14 +27,13 @@ app.get('/questions/:id', (req, res) => {
 app.patch('/questions', (req, res) => {
   // console.log(req.body);
   const { id, vote } = req.body;
-  Question.update({ _id: id }, { votes: vote }, (err) => {
-    if (err) {
-      res.status(500).send(err);
-    } else {
-      // console.log('updated');
-      res.send('updated');
-    }
-  });
+  Question.update({ _id: id }, { votes: vote })
+  .then(() => {
+    res.send('updated');
+  })
+  .catch((err) => {
+    res.status(500).send(err);
+  })
 });
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
