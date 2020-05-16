@@ -1,5 +1,6 @@
 const path = require('path');
 const CompressionPlugin = require('compression-webpack-plugin');
+const zlib = require('zlib');
 
 module.exports = {
   entry: path.resolve(__dirname, 'client', 'index.js'),
@@ -23,6 +24,20 @@ module.exports = {
       },
     ],
   },
-  plugins: [new CompressionPlugin()],
+  // plugins: [new CompressionPlugin()],
+  plugins: [
+    new CompressionPlugin({
+      filename: '[path].br[query]',
+      algorithm: 'brotliCompress',
+      test: /\.(js|css|html|svg)$/,
+      compressionOptions: {
+        // zlib’s `level` option matches Brotli’s `BROTLI_PARAM_QUALITY` option.
+        level: 11,
+      },
+      threshold: 10240,
+      minRatio: 0.8,
+      deleteOriginalAssets: false,
+    }),
+  ],
   mode: 'production',
 };
