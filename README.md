@@ -1,6 +1,6 @@
-# Project Name
+# Questions and Answers microservice
 
-> Project description
+> A full-stack microservice with React, Express and MongoDB
 
 ## Related Projects
 
