@@ -1,38 +1,32 @@
 # Questions and Answers microservice
 
-> A full-stack microservice with React, Express and MongoDB
+> A full-stack questions and answers microservice built with React, Express and MongoDB.
+
+## Table of Contents
+
+1. [Related](#Related)
+2. [Installations](#Installations)
+3. [How-to-start](#How-to-start)
 
 ## Related Projects
 
   - https://github.com/Redwood-HR-FEC/reviews-service
   - https://github.com/Redwood-HR-FEC/product-description-service
-  - hhttps://github.com/Redwood-HR-FEC/ha-proxy
+  - https://github.com/Redwood-HR-FEC/ha-proxy
 
-## Table of Contents
 
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
 
-## Usage
-
-> Some usage instructions
-
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
-
-## Development
-
-### Installing Dependencies
+## Installations
 
 From within the root directory:
 
 ```sh
-npm install -g webpack
 npm install
 ```
+## How-to-start
 
+```sh
+npm run seed
+npm start
+npm run build
+```
